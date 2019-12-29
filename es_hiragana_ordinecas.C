@@ -11,12 +11,19 @@ int main(){
     srand(time(NULL));
     cout << "Insert number of characters for exercise: "<<endl;
     cin>> n;
+
+    //ciclo controllo imput valori:
+    while (n<0 || n>200){
+        cout << "Error! number of characters must be in (0,200]"<< endl;
+        cout << "Insert number of characters for exercise: "<< endl ;
+        cin >>n;
+    }
     
     v=new int [n];
     for (int i=0; i<n; i++){
         v[i]= numsing();
     }
-// lungo delirio sulla conversione da numero a carattere romanji...
+// lungo delirio sulla conversione da numero a carattere in romanji...
     while (k<n){
         //composti di a
         if (v[k]==0){
@@ -462,6 +469,13 @@ int main(){
             cout<< "pyo ";
             k++;
         }
+        if (v[k]==108){
+            cout<< "n";
+            k++;
+        }
+        if (v[k]==109){
+            v[k]--;
+        }
         //finita la sostituzione
     }
     cout << endl;
@@ -469,3 +483,4 @@ int main(){
 
     return 0;
 }
+//--29/12/19 mancava 'n', sistemato ed aggiunto; aggiunto controllo su n; sistemata probabilita' di ultimo carattere;
